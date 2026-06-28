@@ -1,0 +1,72 @@
+{
+  "description": "幻觉字幕过滤规则配置文件",
+  "enabled": true,
+  "filters": {
+    "japanese_common": {
+      "enabled": true,
+      "description": "日语常见幻觉",
+      "patterns": [
+        "ご視聴ありがとうございました",
+        "ご視聴ありがとうございます"
+      ]
+    },
+    "english_common": {
+      "enabled": true,
+      "description": "英语常见幻觉",
+      "patterns": [
+        "see you",
+        "bye bye",
+        "thank you for watching",
+        "thanks for watching",
+        "subscribe",
+        "like and subscribe"
+      ]
+    },
+    "credits": {
+      "enabled": true,
+      "description": "制作信息和片尾",
+      "patterns": [
+        "字幕by",
+        "翻訳:",
+        "製作:",
+        "制作:",
+        "監督:",
+        "声優:",
+        "cast:",
+        "staff:"
+      ]
+    },
+    "music_related": {
+      "enabled": true,
+      "description": "背景音乐相关",
+      "patterns": [
+        "音楽",
+        "BGM",
+        "ミュージック",
+        "music"
+      ]
+    },
+    "noise": {
+      "enabled": true,
+      "description": "噪音和无意义内容",
+      "patterns": [
+        "^\\.\\.\\.+$",
+        "^[\\s\\.,，。、]*$",
+        "^(あ|ああ|ああ+|ん|んん+|えー+|うー+)$"
+      ]
+    },
+    "custom": {
+      "enabled": true,
+      "description": "自定义过滤规则（用户可添加）",
+      "patterns": [
+        "例: 添加你想过滤的文本"
+      ]
+    }
+  },
+  "notes": [
+    "支持正则表达式，使用 ^ 和 $ 表示开头和结尾",
+    "patterns 列表中的每一项都会被检查",
+    "可以设置 enabled: false 来禁用某个分类",
+    "自定义规则请添加到 custom.patterns 中"
+  ]
+}

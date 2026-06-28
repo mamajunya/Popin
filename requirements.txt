@@ -1,0 +1,8 @@
+openai-whisper
+ffmpeg-python
+PyQt6
+requests
+torch==2.4.1
+torchaudio==2.4.1
+torch-directml
+demucs

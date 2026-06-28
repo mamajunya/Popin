@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# User Configuration Files (should not be committed)
+popin_config.json
+ai_config.json
+
+# User Data and Output
+vedio/
+vedio_t/
+test_output/
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.wmv
+*.flv
+*.srt
+*.ass
+
+# Temporary Files
+temp_*.wav
+temp_*.mp4
+temp_*.srt
+*.tmp
+temp_segments/
+
+# Audio Processing
+demucs_output/
+
+# Whisper.cpp (users should download themselves)
+whisper.cpp/*.exe
+whisper.cpp/*.dll
+whisper.cpp/models/*.bin
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Custom Fonts (optional - users can add their own)
+fonts/*.ttf
+fonts/*.otf
+!fonts/README.md
+
+# Documentation Build
+docs/_build/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
