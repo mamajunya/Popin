@@ -12,6 +12,7 @@ import requests
 
 from video_subtitle_generator_cpp import VideoSubtitleGeneratorCpp
 from config_manager import ConfigManager
+from language_manager import get_language_manager
 
 
 def load_ai_config():
@@ -506,6 +507,28 @@ class ModernWindow(QMainWindow):
         # 用于窗口拖动
         self.dragging = False
         self.drag_position = None
+    
+    def change_ui_language(self):
+        """切换界面语言"""
+        # 映射界面显示到语言代码
+        lang_display = self.ui_language.currentText()
+        lang_map = {'中文': 'zh_CN', 'English': 'en_US', '日本語': 'ja_JP'}
+        language_code = lang_map.get(lang_display, 'zh_CN')
+        
+        # 保存到配置
+        self.config_manager.set('app', 'language', language_code)
+        self.config_manager.save_config()
+        
+        # 切换语言管理器的语言
+        lang_manager = get_language_manager()
+        lang_manager.change_language(language_code)
+        
+        # 提示用户重启
+        QMessageBox.information(
+            self, 
+            "语言已更改" if language_code == 'zh_CN' else ("Language Changed" if language_code == 'en_US' else "言語が変更されました"),
+            "请重启程序以应用新的界面语言。\n\nPlease restart the application to apply the new language.\n\n新しい言語を適用するにはアプリケーションを再起動してください。"
+        )
     
     def closeEvent(self, event):
         """窗口关闭事件 - 保存配置"""
@@ -1784,6 +1807,26 @@ class ModernWindow(QMainWindow):
         other_group = QGroupBox("其他设置")
         other_layout = QVBoxLayout()
         
+        # 界面语言选择
+        lang_layout = QHBoxLayout()
+        lang_label = QLabel("界面语言:")
+        lang_label.setFixedWidth(100)
+        lang_layout.addWidget(lang_label)
+        
+        self.ui_language = QComboBox()
+        self.ui_language.addItems(["中文", "English", "日本語"])
+        self.ui_language.setFixedWidth(150)
+        self.ui_language.currentIndexChanged.connect(self.change_ui_language)
+        lang_layout.addWidget(self.ui_language)
+        
+        lang_help = QLabel("(更改后需重启程序)")
+        lang_help.setStyleSheet("color: #999; font-size: 10px;")
+        lang_layout.addWidget(lang_help)
+        lang_layout.addStretch()
+        other_layout.addLayout(lang_layout)
+        
+        other_layout.addSpacing(20)
+        
         reset_btn = QPushButton("重置所有设置")
         reset_btn.clicked.connect(self.reset_all_settings)
         other_layout.addWidget(reset_btn)
@@ -1872,6 +1915,17 @@ class ModernWindow(QMainWindow):
         self.embed_checkbox.setChecked(whisper_config.get('embed_subtitles', True))
         self.audio_preprocess_checkbox.setChecked(whisper_config.get('audio_preprocessing', True))
         self.parallel_count.setValue(whisper_config.get('parallel_count', 2))
+        
+        # 应用设置
+        app_config = self.config_manager.get_category('app')
+        language_code = app_config.get('language', 'zh_CN')
+        
+        # 映射语言代码到界面显示
+        lang_map = {'zh_CN': '中文', 'en_US': 'English', 'ja_JP': '日本語'}
+        lang_display = lang_map.get(language_code, '中文')
+        index = self.ui_language.findText(lang_display)
+        if index >= 0:
+            self.ui_language.setCurrentIndex(index)
     
     def save_current_settings(self):
         """保存当前设置"""
