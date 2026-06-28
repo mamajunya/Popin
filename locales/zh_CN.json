@@ -1,0 +1,93 @@
+{
+  "app_name": "Popin - 智能字幕生成器",
+  "tabs": {
+    "subtitle": "字幕生成",
+    "ai": "AI 设置",
+    "advanced": "高级配置"
+  },
+  "video": {
+    "file": "视频文件:",
+    "browse": "浏览",
+    "output_dir": "输出目录:",
+    "language": "语言:",
+    "language_warning": "⚠ 请选择语言",
+    "embed": "将字幕嵌入视频"
+  },
+  "subtitle_style": {
+    "title": "字幕样式",
+    "font_size": "字体大小:",
+    "font": "字体:",
+    "import_font": "导入字体",
+    "subtitle_color": "字幕颜色:",
+    "enable_outline": "启用描边",
+    "outline_color": "描边颜色:",
+    "outline_width": "描边宽度:",
+    "bottom_margin": "底部边距:",
+    "bold": "粗体",
+    "italic": "斜体",
+    "shadow": "阴影"
+  },
+  "translation": {
+    "title": "字幕翻译",
+    "enable": "启用字幕翻译",
+    "target_language": "目标语言:",
+    "display_mode": "显示模式:",
+    "display_order": "显示顺序:",
+    "ai_config": "AI 配置"
+  },
+  "ai_config": {
+    "title": "AI 翻译 API 配置",
+    "description": "配置 OpenAI 或 Anthropic 兼容的 API 用于字幕翻译\n配置会自动保存到 ai_config.json",
+    "format_label": "选择模型",
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "custom": "自定义",
+    "api_url": "API 地址:",
+    "api_key": "API Key:",
+    "model_name": "模型名称:",
+    "test_connection": "测试连接",
+    "save_config": "保存配置"
+  },
+  "advanced": {
+    "title": "高级配置",
+    "whisper_title": "Whisper.cpp 配置",
+    "whisper_detected": "✓ 已自动检测到 whisper.cpp 配置",
+    "whisper_not_detected": "⚠ 未检测到 whisper.cpp，请在下方配置",
+    "main_program": "主程序:",
+    "model_file": "模型文件:",
+    "cpu_threads": "CPU线程:",
+    "gpu_backend": "GPU后端:",
+    "audio_processing": "音频处理",
+    "enable_preprocessing": "✓ 启用音频预处理（人声分离+智能切片）",
+    "parallel_count": "并行处理数量:",
+    "parallel_hint": "💡 提示：增加并行数量可以加快处理速度，但需要更多显存",
+    "other_settings": "其他设置",
+    "reset_all": "重置所有设置"
+  },
+  "buttons": {
+    "start": "开始生成字幕",
+    "processing": "处理中...",
+    "browse": "浏览",
+    "save": "保存",
+    "cancel": "取消",
+    "ok": "确定"
+  },
+  "messages": {
+    "select_video": "请选择视频文件",
+    "select_whisper": "请选择 whisper.cpp 主程序",
+    "select_model": "请选择模型文件",
+    "select_language": "请选择视频的语言！\n\n这是必选项，否则识别会出错。",
+    "processing": "正在处理...",
+    "batch_processing": "正在批量处理 {count} 个视频...",
+    "success": "✓ 处理完成！",
+    "error": "✗ 处理失败",
+    "batch_complete": "批量处理完成！成功处理 {count} 个视频",
+    "warning": "警告",
+    "api_key_required": "启用翻译需要先配置 API Key\n\n请点击 'AI 配置' 按钮进行配置"
+  },
+  "status": {
+    "processing": "正在处理视频 {current}/{total}: {name}",
+    "translating": "正在翻译字幕 ({current}/{total})...",
+    "embedding": "正在嵌入字幕到视频 ({current}/{total})..."
+  }
+}

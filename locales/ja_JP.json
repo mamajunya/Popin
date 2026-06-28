@@ -1,0 +1,93 @@
+{
+  "app_name": "Popin - インテリジェント字幕ジェネレーター",
+  "tabs": {
+    "subtitle": "字幕生成",
+    "ai": "AI 設定",
+    "advanced": "高度な設定"
+  },
+  "video": {
+    "file": "ビデオファイル:",
+    "browse": "参照",
+    "output_dir": "出力ディレクトリ:",
+    "language": "言語:",
+    "language_warning": "⚠ 言語を選択してください",
+    "embed": "ビデオに字幕を埋め込む"
+  },
+  "subtitle_style": {
+    "title": "字幕スタイル",
+    "font_size": "フォントサイズ:",
+    "font": "フォント:",
+    "import_font": "フォントをインポート",
+    "subtitle_color": "字幕の色:",
+    "enable_outline": "アウトラインを有効にする",
+    "outline_color": "アウトラインの色:",
+    "outline_width": "アウトライン幅:",
+    "bottom_margin": "下マージン:",
+    "bold": "太字",
+    "italic": "斜体",
+    "shadow": "影"
+  },
+  "translation": {
+    "title": "字幕翻訳",
+    "enable": "字幕翻訳を有効にする",
+    "target_language": "ターゲット言語:",
+    "display_mode": "表示モード:",
+    "display_order": "表示順序:",
+    "ai_config": "AI 設定"
+  },
+  "ai_config": {
+    "title": "AI 翻訳 API 設定",
+    "description": "字幕翻訳用に OpenAI または Anthropic 互換 API を設定\n設定は ai_config.json に自動保存されます",
+    "format_label": "モデルを選択",
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "custom": "カスタム",
+    "api_url": "API URL:",
+    "api_key": "API Key:",
+    "model_name": "モデル名:",
+    "test_connection": "接続をテスト",
+    "save_config": "設定を保存"
+  },
+  "advanced": {
+    "title": "高度な設定",
+    "whisper_title": "Whisper.cpp 設定",
+    "whisper_detected": "✓ Whisper.cpp 設定が自動検出されました",
+    "whisper_not_detected": "⚠ Whisper.cpp が検出されませんでした。以下で設定してください",
+    "main_program": "メインプログラム:",
+    "model_file": "モデルファイル:",
+    "cpu_threads": "CPU スレッド:",
+    "gpu_backend": "GPU バックエンド:",
+    "audio_processing": "オーディオ処理",
+    "enable_preprocessing": "✓ オーディオ前処理を有効にする（ボーカル分離+スマートセグメンテーション）",
+    "parallel_count": "並列処理数:",
+    "parallel_hint": "💡 ヒント：並列処理数を増やすと処理が速くなりますが、より多くの VRAM が必要です",
+    "other_settings": "その他の設定",
+    "reset_all": "すべての設定をリセット"
+  },
+  "buttons": {
+    "start": "字幕生成を開始",
+    "processing": "処理中...",
+    "browse": "参照",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "ok": "OK"
+  },
+  "messages": {
+    "select_video": "ビデオファイルを選択してください",
+    "select_whisper": "whisper.cpp メインプログラムを選択してください",
+    "select_model": "モデルファイルを選択してください",
+    "select_language": "ビデオの言語を選択してください！\n\nこれは必須です。選択しないと認識に失敗します。",
+    "processing": "処理中...",
+    "batch_processing": "{count} 個のビデオをバッチ処理中...",
+    "success": "✓ 処理が完了しました！",
+    "error": "✗ 処理に失敗しました",
+    "batch_complete": "バッチ処理が完了しました！{count} 個のビデオを正常に処理しました",
+    "warning": "警告",
+    "api_key_required": "翻訳には API キーの設定が必要です\n\n「AI 設定」ボタンをクリックして設定してください"
+  },
+  "status": {
+    "processing": "ビデオを処理中 {current}/{total}: {name}",
+    "translating": "字幕を翻訳中 ({current}/{total})...",
+    "embedding": "ビデオに字幕を埋め込み中 ({current}/{total})..."
+  }
+}

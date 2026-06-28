@@ -1,0 +1,93 @@
+{
+  "app_name": "Popin - Intelligent Subtitle Generator",
+  "tabs": {
+    "subtitle": "Subtitle Generation",
+    "ai": "AI Settings",
+    "advanced": "Advanced Settings"
+  },
+  "video": {
+    "file": "Video File:",
+    "browse": "Browse",
+    "output_dir": "Output Directory:",
+    "language": "Language:",
+    "language_warning": "⚠ Please select language",
+    "embed": "Embed subtitles in video"
+  },
+  "subtitle_style": {
+    "title": "Subtitle Style",
+    "font_size": "Font Size:",
+    "font": "Font:",
+    "import_font": "Import Font",
+    "subtitle_color": "Subtitle Color:",
+    "enable_outline": "Enable Outline",
+    "outline_color": "Outline Color:",
+    "outline_width": "Outline Width:",
+    "bottom_margin": "Bottom Margin:",
+    "bold": "Bold",
+    "italic": "Italic",
+    "shadow": "Shadow"
+  },
+  "translation": {
+    "title": "Subtitle Translation",
+    "enable": "Enable subtitle translation",
+    "target_language": "Target Language:",
+    "display_mode": "Display Mode:",
+    "display_order": "Display Order:",
+    "ai_config": "AI Configuration"
+  },
+  "ai_config": {
+    "title": "AI Translation API Configuration",
+    "description": "Configure OpenAI or Anthropic compatible API for subtitle translation\nConfiguration will be saved to ai_config.json",
+    "format_label": "Select Model",
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "custom": "Custom",
+    "api_url": "API URL:",
+    "api_key": "API Key:",
+    "model_name": "Model Name:",
+    "test_connection": "Test Connection",
+    "save_config": "Save Configuration"
+  },
+  "advanced": {
+    "title": "Advanced Configuration",
+    "whisper_title": "Whisper.cpp Configuration",
+    "whisper_detected": "✓ Whisper.cpp configuration auto-detected",
+    "whisper_not_detected": "⚠ Whisper.cpp not detected, please configure below",
+    "main_program": "Main Program:",
+    "model_file": "Model File:",
+    "cpu_threads": "CPU Threads:",
+    "gpu_backend": "GPU Backend:",
+    "audio_processing": "Audio Processing",
+    "enable_preprocessing": "✓ Enable audio preprocessing (vocal separation + smart segmentation)",
+    "parallel_count": "Parallel Processing Count:",
+    "parallel_hint": "💡 Tip: Increasing parallelism speeds up processing but requires more VRAM",
+    "other_settings": "Other Settings",
+    "reset_all": "Reset All Settings"
+  },
+  "buttons": {
+    "start": "Start Generating Subtitles",
+    "processing": "Processing...",
+    "browse": "Browse",
+    "save": "Save",
+    "cancel": "Cancel",
+    "ok": "OK"
+  },
+  "messages": {
+    "select_video": "Please select a video file",
+    "select_whisper": "Please select whisper.cpp main program",
+    "select_model": "Please select a model file",
+    "select_language": "Please select the video's language!\n\nThis is required, otherwise recognition will fail.",
+    "processing": "Processing...",
+    "batch_processing": "Batch processing {count} videos...",
+    "success": "✓ Processing complete!",
+    "error": "✗ Processing failed",
+    "batch_complete": "Batch processing complete! Successfully processed {count} videos",
+    "warning": "Warning",
+    "api_key_required": "Translation requires API Key configuration\n\nPlease click 'AI Configuration' button to configure"
+  },
+  "status": {
+    "processing": "Processing video {current}/{total}: {name}",
+    "translating": "Translating subtitles ({current}/{total})...",
+    "embedding": "Embedding subtitles into video ({current}/{total})..."
+  }
+}
