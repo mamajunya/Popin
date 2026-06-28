@@ -2,7 +2,7 @@
 ; 使用 Inno Setup 创建安装程序
 
 #define MyAppName "Popin"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "2.0.1"
 #define MyAppPublisher "Popin Team"
 #define MyAppExeName "Popin.exe"
 #define MyAppURL "https://github.com/yourusername/popin"
