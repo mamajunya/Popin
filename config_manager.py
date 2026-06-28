@@ -17,6 +17,11 @@ class ConfigManager:
     def load_config(self):
         """加载配置"""
         default_config = {
+            # 应用设置
+            "app": {
+                "language": "zh_CN"  # zh_CN, en_US, ja_JP
+            },
+            
             # 字幕样式设置
             "subtitle": {
                 "font_size": 10,
@@ -29,6 +34,7 @@ class ConfigManager:
                 "primary_color": "#FFFFFF",  # 主颜色（白色）
                 "outline_color": "#000000",  # 描边颜色（黑色）
                 "outline_width": 2,
+                "outline_enabled": True,
                 "shadow": False,
                 "shadow_offset": 2
             },
@@ -47,7 +53,8 @@ class ConfigManager:
                 "gpu_backend": "Vulkan",
                 "threads": 4,
                 "embed_subtitles": True,
-                "audio_preprocessing": True
+                "audio_preprocessing": True,
+                "parallel_count": 2  # 并行处理数量
             },
             
             # AI 配置
