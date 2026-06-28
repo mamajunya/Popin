@@ -1,5 +1,6 @@
 import sys
 import json
+import os
 from pathlib import Path
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QLabel, QPushButton, QLineEdit, QComboBox,
@@ -15,9 +16,16 @@ from config_manager import ConfigManager
 from language_manager import get_language_manager
 
 
+def get_config_dir():
+    """获取配置文件目录（用户目录）"""
+    appdata_dir = Path(os.getenv('APPDATA', os.path.expanduser('~'))) / 'Popin'
+    appdata_dir.mkdir(parents=True, exist_ok=True)
+    return appdata_dir
+
+
 def load_ai_config():
     """加载AI配置（全局函数）"""
-    config_file = Path("ai_config.json")
+    config_file = get_config_dir() / "ai_config.json"
     default_config = {
         "api_url": "https://api.openai.com/v1",
         "api_key": "",
@@ -49,7 +57,7 @@ class AIConfigDialog(QDialog):
     
     def load_config(self):
         """加载配置文件"""
-        config_file = Path("ai_config.json")
+        config_file = get_config_dir() / "ai_config.json"
         default_config = {
             "api_url": "https://api.openai.com/v1",
             "api_key": "",
@@ -79,7 +87,8 @@ class AIConfigDialog(QDialog):
         }
         
         try:
-            with open("ai_config.json", 'w', encoding='utf-8') as f:
+            config_file = get_config_dir() / "ai_config.json"
+            with open(config_file, 'w', encoding='utf-8') as f:
                 json.dump(config, f, indent=2, ensure_ascii=False)
             return True
         except Exception as e:
@@ -99,7 +108,7 @@ class AIConfigDialog(QDialog):
         layout.addWidget(title)
         
         # 说明
-        desc = QLabel("配置 OpenAI 或 Anthropic 兼容的 API 用于字幕翻译\n配置会自动保存到 ai_config.json")
+        desc = QLabel("配置 OpenAI 或 Anthropic 兼容的 API 用于字幕翻译\n配置会自动保存到用户目录")
         desc.setAlignment(Qt.AlignmentFlag.AlignCenter)
         desc.setStyleSheet("color: #666666; font-size: 10pt;")
         layout.addWidget(desc)
@@ -664,7 +673,7 @@ class ModernWindow(QMainWindow):
         main_layout.addWidget(title_bar)
         
         # 主标题
-        title = QLabel("🎬 Popin")
+        title = QLabel("Popin")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setFont(QFont("Microsoft YaHei", 18, QFont.Weight.Bold))
         main_layout.addWidget(title)

@@ -4,6 +4,7 @@
 """
 
 import json
+import os
 from pathlib import Path
 
 
@@ -11,7 +12,10 @@ class ConfigManager:
     """配置管理器"""
     
     def __init__(self, config_file="popin_config.json"):
-        self.config_file = Path(config_file)
+        # 使用用户目录存储配置，避免权限问题
+        appdata_dir = Path(os.getenv('APPDATA', os.path.expanduser('~'))) / 'Popin'
+        appdata_dir.mkdir(parents=True, exist_ok=True)
+        self.config_file = appdata_dir / config_file
         self.config = self.load_config()
     
     def load_config(self):
