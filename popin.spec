@@ -45,7 +45,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='icon.ico' if Path('icon.ico').exists() else None,
+    icon='icon.ico',  # 直接使用根目录的 icon.ico
 )
 
 coll = COLLECT(

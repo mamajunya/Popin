@@ -64,6 +64,14 @@ whisper.cpp/*.exe
 whisper.cpp/*.dll
 whisper.cpp/models/*.bin
 
+# Build and Distribution
+build/
+dist/
+*.spec
+installer_output/
+popin/
+release/
+
 # System Files
 .DS_Store
 Thumbs.db
