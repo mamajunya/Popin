@@ -620,7 +620,7 @@ class ModernWindow(QMainWindow):
         title_bar_layout.setContentsMargins(10, 5, 10, 5)
         
         # 标题
-        title_label = QLabel("视频自动字幕生成器")
+        title_label = QLabel("Popin")
         title_label.setStyleSheet("color: #64B5F6; font-weight: bold; font-size: 11pt;")
         title_bar_layout.addWidget(title_label)
         title_bar_layout.addStretch()
@@ -664,7 +664,7 @@ class ModernWindow(QMainWindow):
         main_layout.addWidget(title_bar)
         
         # 主标题
-        title = QLabel(" 视频自动字幕生成器")
+        title = QLabel("🎬 Popin")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setFont(QFont("Microsoft YaHei", 18, QFont.Weight.Bold))
         main_layout.addWidget(title)
@@ -1834,6 +1834,40 @@ class ModernWindow(QMainWindow):
         other_group.setLayout(other_layout)
         layout.addWidget(other_group)
         
+        # GitHub 支持组
+        github_group = QGroupBox("❤️ 支持项目")
+        github_layout = QVBoxLayout()
+        
+        github_text = QLabel("如果 Popin 对您有帮助，欢迎到 GitHub 给个星标支持！")
+        github_text.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        github_text.setStyleSheet("color: #666; font-size: 11pt; margin: 10px 0;")
+        github_layout.addWidget(github_text)
+        
+        github_btn = QPushButton("⭐ 前往 GitHub 点个星")
+        github_btn.setFixedHeight(45)
+        github_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #24292e;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                font-weight: bold;
+                font-size: 12pt;
+            }
+            QPushButton:hover {
+                background-color: #0366d6;
+            }
+            QPushButton:pressed {
+                background-color: #005cc5;
+            }
+        """)
+        github_btn.clicked.connect(self.open_github)
+        github_layout.addWidget(github_btn)
+        
+        github_group.setLayout(github_layout)
+        layout.addWidget(github_group)
+        
         layout.addStretch()
     
     def reset_all_settings(self):
@@ -1854,6 +1888,11 @@ class ModernWindow(QMainWindow):
             self.load_settings()
             
             QMessageBox.information(self, '成功', '所有设置已重置为默认值')
+    
+    def open_github(self):
+        """打开 GitHub 页面"""
+        import webbrowser
+        webbrowser.open('https://github.com/mamajunya/Popin')
     
     def load_settings(self):
         """加载上次的设置"""
